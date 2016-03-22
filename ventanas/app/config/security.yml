@@ -13,7 +13,7 @@ security:
     firewalls:
         # disables authentication for assets and the profiler, adapt it according to your needs
         dev:
-            pattern: ^/(_(profiler|wdt)|css|images|js)/
+            pattern: ^/(_(profiler|wdt|error)|css|images|js)/
             security: false
 
         secured_area:
@@ -22,35 +22,19 @@ security:
                 login_path: /login
                 check_path: /login_check
                 provider: fos_userbundle
-                csrf_provider: form.csrf_provider
+                csrf_provider: security.csrf.token_manager
             logout:
                 path: /logout
                 target: /
-            anonymous: ~
+            anonymous: true
             remember_me:
                 key:      ventanas
                 lifetime: 3600
                 path:     /
-                domain:   ~  
-#        login:
-#            pattern:  ^/demo/secured/login$
-#            security: false
-
-#        secured_area:
-#            pattern:    ^/demo/secured/
-#            form_login:
-#                check_path: _security_check
-#                login_path: _demo_login
-#            logout:
-#                path:   _demo_logout
-#                target: _demo
-            #anonymous: ~
-            #http_basic:
-            #    realm: "Secured Demo Area"
-
+                domain:   ~                  
+            
     access_control:
         - { path: ^/login$, role: IS_AUTHENTICATED_ANONYMOUSLY }
-#        - { path: ^/register$, role: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/resetting, role: IS_AUTHENTICATED_ANONYMOUSLY }
-#        - { path: ^/demo/secured/hello/admin/, roles: ROLE_ADMIN }
-        - { path: ^/admin, roles: IS_AUTHENTICATED_FULLY }
+        - { path: ^/proyecto, roles: IS_AUTHENTICATED_FULLY }
+        - { path: ^/admin, roles: ROLE_ADMIN }

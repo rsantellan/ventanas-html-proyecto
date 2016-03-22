@@ -10,7 +10,9 @@ parameters:
 
 framework:
     #esi:             ~
-    translator:      { fallback: "%locale%" }
+    translator:
+      fallbacks: ["%locale%"]
+      logging:  false
     secret:          "%secret%"
     router:
         resource: "%kernel.root_dir%/config/routing.yml"
@@ -88,7 +90,7 @@ stof_doctrine_extensions:
             timestampable: true
             sortable: true
             sluggable: true
-            translatable: true
+            translatable: false
 
 fos_user:
     db_driver: orm
@@ -101,7 +103,11 @@ fos_user:
 jms_security_extra:
     # Enables expression language
     expressions: true
+    
+services:
+    fos_user.doctrine_registry:
+        alias: doctrine
 
-maith_common_translator:    
+maith_common_translator:
     translation_bundles: # Que bundles voy a traducir
-        - AppBundle   
+        - AppBundle
