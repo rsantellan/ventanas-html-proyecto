@@ -1,16 +1,71 @@
-{% extends '::base.html.twig' %}
+{% extends 'AppBundle::adminlayout.html.twig' %}
+
+{% block pagestylesheets %}
+  <link rel="stylesheet" type="text/css" href="{{ asset('bundles/maithcommonimage/css/maithalbums.css') }}" />
+  <link rel="stylesheet" type="text/css" href="{{ asset('bundles/maithcommonadmin/css/colorbox.css') }}" />
+{% endblock %}
+{% block javascripts %}
+  <script type="text/javascript" src="{{ asset('bundles/maithcommonadmin/js/jquery.colorbox-min.js') }}"></script>    
+  <script type="text/javascript" src="{{ asset('bundles/maithcommonimage/js/imagesManager.js') }}"></script>    
+  <script src="{{ asset('bundles/maithcommonadmin/js/tinymce/tinymce.min.js') }}"></script>
+  <script src="{{ asset('bundles/app/admin/js/basicstarttinymce.js') }}"></script>
+{% endblock %}
 
 {% block body -%}
-    <h1>Product edit</h1>
-
-    {{ form(edit_form) }}
-
-        <ul class="record_actions">
-    <li>
-        <a href="{{ path('admin_product') }}">
-            Back to the list
+    
+<div class="row">
+  <div class="col-lg-12">
+    <section class="panel">
+      <header class="panel-heading">{% trans %}product_update_entry{% endtrans %}</header>
+      <div class="panel-body">
+        <form action="{{ path('admin_product_update', { 'id': entity.id }) }}" method="post" {{ form_enctype(edit_form) }} role="form">
+          <input type="hidden" name="_method" value="PUT" />  
+          <div class="form-group">
+            {{ form_errors(edit_form.name) }}
+            <label for="{{ edit_form.name.vars.id }}">{% trans %}product_name{% endtrans %}</label>
+            {{ form_widget(edit_form.name, {'attr' : {'class' : 'form-control'}}) }}
+          </div>
+          <div class="form-group">
+            {{ form_errors(edit_form.shortDescription) }}
+            <label for="{{ edit_form.shortDescription.vars.id }}">{% trans %}product_short_description{% endtrans %}</label>
+            {{ form_widget(edit_form.shortDescription, {'attr' : {'class' : 'form-control'}}) }}
+          </div>
+          <div class="form-group">
+            {{ form_errors(edit_form.description) }}
+            <label for="{{ edit_form.description.vars.id }}">{% trans %}product_description{% endtrans %}</label>
+            {{ form_widget(edit_form.description, {'attr' : {'class' : 'form-control'}}) }}
+          </div>
+          <div class="form-group">
+            {{ form_errors(edit_form.position) }}
+            <label for="{{ edit_form.position.vars.id }}">{% trans %}product_position{% endtrans %}</label>
+            {{ form_widget(edit_form.position, {'attr' : {'class' : 'form-control'}}) }}
+          </div>
+          <div class="checkbox">
+                {{ form_errors(edit_form.featured) }}
+                <label for="{{ edit_form.featured.vars.id }}">
+                    {{ form_widget(edit_form.featured, {'attr' : {'class' : ''}}) }}{% trans %}product_featured{% endtrans %}
+                </label>
+          </div>
+          <div class="form-group">
+            <button type="submit" class="btn btn-default">{% trans %}product_save{% endtrans %}</button>
+          </div>	
+              {{ form_rest(edit_form) }}
+          </form>
+	  
+	  {{ render(controller('MaithCommonAdminBundle:Albums:albumsData', {'id': entity.id, 'objectclass' : entity.fullClassName, 'listmode' : false }))}}
+        </div>
+      </section>
+    </div>
+    <div class="col-lg-8">
+        <a href="{{ path('admin_product') }}" class="btn btn-info">
+		  {% trans %}product_back_to_list{% endtrans %}
         </a>
-    </li>
-    <li>{{ form(delete_form) }}</li>
-</ul>
+        <form action="{{ path('admin_product_delete', { 'id': entity.id }) }}" method="post" onsubmit="return confirmDeleteDialog();" style="float: right;">
+          <input type="hidden" name="_method" value="DELETE" />
+                {{ form_widget(delete_form) }}
+          <button class="btn btn-danger" type="submit">{% trans %}product_delete{% endtrans %}</button>
+        </form>
+    </div>	
+    
+</div>    
 {% endblock %}

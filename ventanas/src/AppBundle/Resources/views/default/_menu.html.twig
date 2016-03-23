@@ -1,0 +1,36 @@
+<header id="header" class="clear">
+    <div class="headerWrap clear">
+        <a href="index.php" class="logo">
+            <!-- You can also use image as a logo the example below -->
+            <img class="logo-white" src="{{ asset('images/logo-white.png') }}" alt="">
+            <img class="logo-black" src="{{ asset('images/logo-black.png') }}" alt="">
+        </a>
+        <nav class="mainMenu">
+            <ul class="clear">
+                <li>
+                    <a href="{{ path('homepage')}}">{% trans %}menu_inicio{% endtrans %}</a></li>
+                <li>
+                    <a href="productos.php" class="{% if (activemenu is defined) and activemenu == 'productos' %}current{%endif%}">{% trans %}menu_productos{% endtrans %}</a>
+                </li>
+                <li>
+                    <a href="productos.php" class="{% if (activemenu is defined) and activemenu == 'servicios' %}current{%endif%}">{% trans %}menu_servicios{% endtrans %}</a>
+                </li>
+                <li>
+                    <a href="{{ path('site_gallery')}}" class="{% if (activemenu is defined) and activemenu == 'galeria' %}current{%endif%}">{% trans %}menu_galeria{% endtrans %}</a>
+                </li>
+                <li>
+                    <a href="{{ path('site_nosotros')}}" class="{% if (activemenu is defined) and activemenu == 'nosotros' %}current{%endif%}">{% trans %}menu_nosotros{% endtrans %}</a>
+                </li>
+                <li>
+                    <a href="productos.php" class="{% if (activemenu is defined) and activemenu == 'contacto' %}current{%endif%}">{% trans %}menu_contacto{% endtrans %}</a>
+                </li>
+            </ul>
+        </nav>
+        <span class="showMobileMenu">
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+        </span>
+    </div>
+</header>

@@ -1,6 +1,47 @@
-{% extends '::base.html.twig' %}
+{% extends 'AppBundle::adminlayout.html.twig' %}
 
 {% block body -%}
+<div class="row">
+    <div class="col-lg-8">    
+        <section class="panel panel-info">
+            <header class="panel-heading">{% trans %}product_list_title{% endtrans %}</header>
+            <div class="panel-body">
+                <div class="table-responsive no-border">
+                    <table class="table table-bordered table-striped mg-t">
+                        <thead>
+                            <tr>
+                                <th>{% trans %}product_name{% endtrans %}</th>
+                                <th>{% trans %}product_position{% endtrans %}</th>
+                                <th>{% trans %}product_acciones{% endtrans %}</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for entity in entities %}
+                                <tr>
+                                    <td>{{ entity.name }}</td>
+                                    <td>{{ entity.position }}</td>
+                                    <td>
+                                    <ul>
+                                        <li>
+                                            <a href="{{ path('admin_product_edit', { 'id': entity.id }) }}"><i class="fa fa-pencil-square-o fa-2x"></i></a>
+                                        </li>
+                                    </ul>
+                                    </td>
+                                </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                    <div class="col-lg-12 text-center">
+                        <a href="{{ path('admin_product_new') }}" class="btn btn-info">
+                            {% trans %}product_create{% endtrans %}
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+</div>      
+  
     <h1>Product list</h1>
 
     <table class="records_list">
@@ -23,8 +64,8 @@
                 <td>{{ entity.name }}</td>
                 <td>{{ entity.shortDescription }}</td>
                 <td>{{ entity.description }}</td>
-                <td>{{ entity.createdAt }}</td>
-                <td>{{ entity.updatedAt }}</td>
+                <td>{{ entity.createdAt | date('d/m/Y') }}</td>
+                <td>{{ entity.updatedAt | date('d/m/Y')  }}</td>
                 <td>{{ entity.position }}</td>
                 <td>
                 <ul>

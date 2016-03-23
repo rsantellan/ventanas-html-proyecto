@@ -1,0 +1,42 @@
+<div class="collapse navbar-collapse pull-left no-padding" id="hor-menu">
+  <ul class="nav navbar-nav">
+    {#
+    <li>
+      <a href="{{ path('admin_article')}}">{% trans %}menu_admin_noticias{% endtrans %}</a>
+    </li>
+    <li>
+      <a href="{{ path('admin_document')}}">{% trans %}menu_admin_documents{% endtrans %}</a>
+    </li>
+    <li>
+      <a href="{{ path('admin_integrante')}}">{% trans %}menu_admin_integrantes{% endtrans %}</a>
+    </li>
+    #}
+    <li>
+      <a href="{{ path('admin_gallerie')}}">{% trans %}admin_menu_galeries{% endtrans %}</a>
+    </li>
+    <li>
+      <a href="{{ path('admin_product')}}">{% trans %}admin_menu_admin_productos{% endtrans %}</a>
+    </li>
+    <li>
+      <a href="{{ path('maith_common_translator_homepage')}}">{% trans %}admin_menu_textos{% endtrans %}</a>
+    </li>
+    <li class="dropdown active show-on-hover">
+      <a href="javascript:;" data-toggle="dropdown">
+        <span>{% trans %}admin_menu_user_management{% endtrans %}</span>
+        <b class="caret"></b>
+      </a>
+      <ul class="dropdown-menu">
+        <li>
+          <a href="{{ path('user')}}">
+            <span>{% trans %}admin_menu_usuarios{% endtrans %}</span>
+          </a>
+        </li>
+        <li>
+          <a href="{{ path('grouprole')}}">
+            <span>{% trans %}admin_menu_grupos_roles{% endtrans %}</span>
+          </a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>

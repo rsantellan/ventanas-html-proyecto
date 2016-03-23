@@ -3,12 +3,13 @@
 namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Gedmo\Mapping\Annotation as Gedmo;
 
 /**
  * Product
  *
- * @ORM\Table()
- * @ORM\Entity
+ * @ORM\Table(name="ventana_producto")
+ * @ORM\Entity(repositoryClass="Gedmo\Sortable\Entity\Repository\SortableRepository")
  */
 class Product
 {
@@ -38,13 +39,14 @@ class Product
     /**
      * @var string
      *
-     * @ORM\Column(name="description", type="text")
+     * @ORM\Column(name="description", type="text", nullable=true)
      */
     private $description;
 
     /**
      * @var \DateTime
      *
+     * @Gedmo\Timestampable(on="create")
      * @ORM\Column(name="createdAt", type="datetimetz")
      */
     private $createdAt;
@@ -52,6 +54,7 @@ class Product
     /**
      * @var \DateTime
      *
+     * @Gedmo\Timestampable(on="update")
      * @ORM\Column(name="updatedAt", type="datetimetz")
      */
     private $updatedAt;
@@ -59,11 +62,26 @@ class Product
     /**
      * @var integer
      *
+     * @Gedmo\SortablePosition
      * @ORM\Column(name="position", type="integer")
      */
-    private $position;
+    private $position = 0;
 
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="featured", type="boolean")
+     */
+    private $featured = false;
 
+    /**
+     * @var String
+     *
+     * @Gedmo\Slug(fields={"name"})
+     * @ORM\Column(name="slug", type="string", length=255)
+     */
+    private $slug;
+    
     /**
      * Get id
      *
@@ -210,5 +228,61 @@ class Product
     public function getPosition()
     {
         return $this->position;
+    }
+
+    /**
+     * Set featured
+     *
+     * @param boolean $featured
+     * @return Product
+     */
+    public function setFeatured($featured)
+    {
+        $this->featured = $featured;
+
+        return $this;
+    }
+
+    /**
+     * Get featured
+     *
+     * @return boolean 
+     */
+    public function getFeatured()
+    {
+        return $this->featured;
+    }
+
+    /**
+     * Set slug
+     *
+     * @param string $slug
+     * @return Product
+     */
+    public function setSlug($slug)
+    {
+        $this->slug = $slug;
+
+        return $this;
+    }
+
+    /**
+     * Get slug
+     *
+     * @return string 
+     */
+    public function getSlug()
+    {
+        return $this->slug;
+    }
+    
+    public function getFullClassName()
+    {
+      return get_class($this);
+    }
+    
+    public function retrieveAlbums()
+    {
+      return array('imagenes', 'archivos');
     }
 }

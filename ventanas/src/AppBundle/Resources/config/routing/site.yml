@@ -1,0 +1,6 @@
+site_gallery:
+    path:     /galeria.html
+    defaults: { _controller: AppBundle:Default:gallery }    
+site_nosotros:
+    path:     /nosotros.html
+    defaults: { _controller: AppBundle:Default:nosotros }    

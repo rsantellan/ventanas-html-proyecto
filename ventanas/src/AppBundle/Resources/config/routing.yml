@@ -2,3 +2,14 @@ app_admin_product:
     resource: "@AppBundle/Resources/config/routing/product.yml"
     prefix:   /admin/product
 
+site:
+    resource: "@AppBundle/Resources/config/routing/site.yml"
+    prefix:   /
+
+homepage:
+    path:     /
+    defaults: { _controller: "AppBundle:Default:index" }
+    
+admin_basic:
+    resource: "@AppBundle/Resources/config/routing/admin.yml"
+    prefix:   /admin    

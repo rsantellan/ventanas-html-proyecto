@@ -44,7 +44,7 @@ class ProductController extends Controller
             $em->persist($entity);
             $em->flush();
 
-            return $this->redirect($this->generateUrl('admin_product_show', array('id' => $entity->getId())));
+            return $this->redirect($this->generateUrl('admin_product_edit', array('id' => $entity->getId())));
         }
 
         return $this->render('AppBundle:Product:new.html.twig', array(
@@ -67,7 +67,7 @@ class ProductController extends Controller
             'method' => 'POST',
         ));
 
-        $form->add('submit', 'submit', array('label' => 'Create'));
+        //$form->add('submit', 'submit', array('label' => 'Create'));
 
         return $form;
     }
@@ -147,7 +147,7 @@ class ProductController extends Controller
             'method' => 'PUT',
         ));
 
-        $form->add('submit', 'submit', array('label' => 'Update'));
+        //$form->add('submit', 'submit', array('label' => 'Update'));
 
         return $form;
     }
@@ -217,7 +217,7 @@ class ProductController extends Controller
         return $this->createFormBuilder()
             ->setAction($this->generateUrl('admin_product_delete', array('id' => $id)))
             ->setMethod('DELETE')
-            ->add('submit', 'submit', array('label' => 'Delete'))
+            //->add('submit', 'submit', array('label' => 'Delete'))
             ->getForm()
         ;
     }

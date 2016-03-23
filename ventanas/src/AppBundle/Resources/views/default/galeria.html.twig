@@ -1,0 +1,17 @@
+{% extends 'AppBundle::base.html.twig' %}
+
+{% block body %}
+<section class="container">
+    <div class="contentWrap">
+        <div class="shopItems">
+            <div class="shopItemsWrap">
+                {% for file in files%}
+                <a class="shopItem {% if loop.first %}fc-event-yoga{% endif %}">
+                    <img alt="{{ file.fileName }}" src="{{ file.pathName | mImage(500, 500, 'rce') }}" />
+                </a>
+                {% endfor %}                
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
