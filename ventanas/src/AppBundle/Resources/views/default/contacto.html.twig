@@ -1,0 +1,48 @@
+{% extends 'AppBundle::base.html.twig' %}
+{% block body %}
+<section class="container">
+    <div class="pageHeader" style="background-image: url({{ asset('images/content/contacto-top.jpg')}});">
+    </div>
+
+    <div class="checkoutPage clear">
+        <div class="fcell">
+            <h3>{% trans %}contact_title{% endtrans %}</h3>
+            {% if app.session.flashbag.has('success') %}
+                {% for flashmessage in app.session.flashbag.get('success') %}
+                    {{ flashmessage}}
+                {% endfor %}
+            {% endif %}
+            <form action="{{ path('site_contacto') }}" method="POST" >
+            <p class="contacto-text">{% trans %}contact_description{% endtrans %}</p>
+            <p class="form-row form-row-first">
+                {{ form_errors(form.name) }}
+                <label for="{{ form.name.vars.id }}">{% trans %}contact_name{% endtrans %}</label>
+                {{ form_widget(form.name, {'attr' : {'class' : 'input-text'}}) }}
+            </p>
+            <p class="form-row form-row-last">
+                {{ form_errors(form.email) }}
+                <label for="{{ form.email.vars.id }}">{% trans %}contact_email{% endtrans %}</label>
+                {{ form_widget(form.email, {'attr' : {'class' : 'input-text'}}) }}
+            </p>
+            <div class="clear"></div>
+            <p class="form-row form-row-wide">
+                {{ form_errors(form.subject) }}
+                <label for="{{ form.subject.vars.id }}">{% trans %}contact_subject{% endtrans %}</label>
+                {{ form_widget(form.subject, {'attr' : {'class' : 'input-text'}}) }}
+            </p>
+            <p class="form-row form-row-wide">
+                {{ form_errors(form.message) }}
+                <label for="{{ form.message.vars.id }}">{% trans %}contact_message{% endtrans %}</label>
+                {{ form_widget(form.message) }}
+            </p>
+            <input class="checkoutBtn" type="submit" value="{% trans %}contact_send{% endtrans %}">
+            {{ form_rest(form) }}
+            </form>
+        </div>				
+
+
+    </div>
+
+
+</section>
+{% endblock %}    

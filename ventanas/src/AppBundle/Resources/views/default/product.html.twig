@@ -1,0 +1,39 @@
+{% extends 'AppBundle::base.html.twig' %}
+{% block body %}
+    <section class="container">
+
+        <div class="contentWrap">
+
+            <div class="singleProductWrap">
+                <div class="wrapper clear">
+                    <div class="productGallery clear">
+                        <div class="galleryThumb">
+                            {% if images is not null %}
+                                {% for image in images.files %}
+                                <a href="#imgId{{ loop.index }}" class="galleryThumbItem {% if loop.first %}active{% endif %}">
+                                    <img src="{{ image.fullPath | mImage(540, 540, 'rce') }}" alt="">
+                                </a>
+                                {% endfor %}
+                            {% endif %}
+                        </div>
+                        <div class="productGalleryWrap">
+                            {% if images is not null %}
+                                {% for image in images.files %}
+                                    <img class="{% if loop.first %}current{% endif %}" id="imgId{{ loop.index }}" src="{{ image.fullPath | mImage(540, 540, 'rce') }}" alt="">
+                                {% endfor %}
+                            {% endif %}
+                        </div>
+                    </div>
+                    <div class="productDesc">
+                        <h1>{{ product.name }}</h1>
+                        {{ product.description | raw }}
+                        {% if files is not null %}
+                            {% for file in files.files %}
+                                <p><a href="{{ path('site_producto_file_download', { 'id' : file.id }) }}" target="blank"><i class="fa fa-download"></i> <span>Descargar Folleto</span></a></p>
+                            {% endfor %}
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+    </section>
+{% endblock %}

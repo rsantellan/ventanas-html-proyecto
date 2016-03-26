@@ -23,7 +23,7 @@ class ProductController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
 
-        $entities = $em->getRepository('AppBundle:Product')->findAll();
+        $entities = $em->createQuery('select p from AppBundle:Product p order by p.position asc')->getResult();
 
         return $this->render('AppBundle:Product:index.html.twig', array(
             'entities' => $entities,

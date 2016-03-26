@@ -3,19 +3,19 @@
         <li>
             <a href="{{ path('homepage')}}">{% trans %}menu_inicio{% endtrans %}</a></li>
         <li>
-            <a href="productos.php" class="{% if (activemenu is defined) and activemenu == 'productos' %}current{%endif%}">{% trans %}menu_productos{% endtrans %}</a>
+            <a href="{{ path('site_productos') }}" class="{% if (activemenu is defined) and activemenu == 'productos' %}current{%endif%}">{% trans %}menu_productos{% endtrans %}</a>
         </li>
         <li>
-            <a href="productos.php" class="{% if (activemenu is defined) and activemenu == 'servicios' %}current{%endif%}">{% trans %}menu_servicios{% endtrans %}</a>
+            <a href="{{ path('site_servicios') }}" class="{% if (activemenu is defined) and activemenu == 'servicios' %}current{%endif%}">{% trans %}menu_servicios{% endtrans %}</a>
         </li>
         <li>
             <a href="{{ path('site_gallery')}}" class="{% if (activemenu is defined) and activemenu == 'galeria' %}current{%endif%}">{% trans %}menu_galeria{% endtrans %}</a>
         </li>
         <li>
-            <a href="productos.php" class="{% if (activemenu is defined) and activemenu == 'nosotros' %}current{%endif%}">{% trans %}menu_nosotros{% endtrans %}</a>
+            <a href="{{ path('site_nosotros')}}" class="{% if (activemenu is defined) and activemenu == 'nosotros' %}current{%endif%}">{% trans %}menu_nosotros{% endtrans %}</a>
         </li>
         <li>
-            <a href="productos.php" class="{% if (activemenu is defined) and activemenu == 'contacto' %}current{%endif%}">{% trans %}menu_contacto{% endtrans %}</a>
+            <a href="{{ path('site_contacto')}}" class="{% if (activemenu is defined) and activemenu == 'contacto' %}current{%endif%}">{% trans %}menu_contacto{% endtrans %}</a>
         </li>
     </ul>
 </div>

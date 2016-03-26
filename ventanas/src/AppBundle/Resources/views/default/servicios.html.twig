@@ -1,0 +1,20 @@
+{% extends 'AppBundle::base.html.twig' %}
+{% block body %}
+
+    <section class="container">
+        <div class="ourStory">
+            <div class="wrapper">
+                <div class="storyItem clear">
+                    <div class="storyImg">
+                        <img src="{{ asset('images/content/servicios1.jpg') }}" alt="">	
+                    </div>
+                    <div class="storyDesc">
+                        <h3>{% trans %}servicios_title{% endtrans %}</h3>
+                        {% trans %}servicios_list{% endtrans %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>    
+
+{% endblock %}

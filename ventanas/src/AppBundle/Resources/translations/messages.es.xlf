@@ -211,6 +211,49 @@
         <source>admin_menu_textos</source>
         <target>Textos</target>
       </trans-unit>
+      <trans-unit id="2bdb3238ee518e9a9a92d080252d78bd" resname="contact_title">
+        <source>contact_title</source>
+        <target>contacto</target>
+      </trans-unit>
+      <trans-unit id="c2d3692e2c0ebc7a3fb6164c946eb2d2" resname="contact_description">
+        <source>contact_description</source>
+        <target><![CDATA[Complet&aacute; el formulario y con mucho gusto nos pondremos en contacto contigo a la brevedad.]]></target>
+      </trans-unit>
+      <trans-unit id="f788aab54dfc2dd451e5d46c1471010b" resname="contact_name">
+        <source>contact_name</source>
+        <target>Nombre / Apellido</target>
+      </trans-unit>
+      <trans-unit id="b9973d8c69683b273205eb67914beada" resname="contact_email">
+        <source>contact_email</source>
+        <target>Mail</target>
+      </trans-unit>
+      <trans-unit id="e3b93f1bb28573fcd27aefba49219d32" resname="contact_subject">
+        <source>contact_subject</source>
+        <target>Asunto</target>
+      </trans-unit>
+      <trans-unit id="e5c2bac810fe75d674feec7409436992" resname="contact_send">
+        <source>contact_send</source>
+        <target>enviar</target>
+      </trans-unit>
+      <trans-unit id="20c17bb66949f832243152b10d9eb946" resname="contact_message">
+        <source>contact_message</source>
+        <target>Mensaje</target>
+      </trans-unit>
+      <trans-unit id="731b11eebea5da35ab43c721d3fa448c" resname="servicios_title">
+        <source>servicios_title</source>
+        <target>NUESTRO SERVICIOS</target>
+      </trans-unit>
+      <trans-unit id="97f7d9360d006b97f165e0b50d0518d8" resname="servicios_list">
+        <source>servicios_list</source>
+        <target><![CDATA[<ul class="serv-list">
+<li>Rectificado de medidas</li>
+<li>Colocaciones con obra seca</li>
+<li>Cambio de persianas existentes por persianas de aluminio</li>
+<li>Ajuste de aberturas al finalizar la obra</li>
+<li>Fachadas de aluminio compuesto</li>
+<li>Presupuestos sin cargo</li>
+</ul>]]></target>
+      </trans-unit>
     </body>
   </file>
 </xliff>

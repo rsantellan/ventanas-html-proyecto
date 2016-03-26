@@ -1,6 +1,27 @@
 site_gallery:
     path:     /galeria.html
     defaults: { _controller: AppBundle:Default:gallery }    
+
 site_nosotros:
     path:     /nosotros.html
     defaults: { _controller: AppBundle:Default:nosotros }    
+
+site_contacto:
+    path:     /contacto.html
+    defaults: { _controller: AppBundle:Default:contacto }    
+
+site_servicios:
+    path:     /servicios.html
+    defaults: { _controller: AppBundle:Default:servicios }    
+
+site_productos:
+    path:     /productos.html
+    defaults: { _controller: AppBundle:Default:productos }    
+
+site_producto:
+    path:     /producto/{slug}.html
+    defaults: { _controller: AppBundle:Default:producto }    
+
+site_producto_file_download:
+    path:     /producto/{id}/archivo.html
+    defaults: { _controller: AppBundle:Default:downloadOriginalFile }    

@@ -1,0 +1,17 @@
+{% extends 'AppBundle::base.html.twig' %}
+{% block body %}
+<section class="container">
+    <div class="blogPostWrap">
+        {% for product in products %}
+            <div class="postItem">
+                <a href="{{ path('site_producto', {'slug' : product.slug }) }}" class="postItemImg">
+                    <img src="{{ product.id | mAvatar(product.fullClassName, 'imagenes') | mImage(408, 272, 'rce') }}" alt="">
+                </a>
+                <h4><a href="{{ path('site_producto', {'slug' : product.slug }) }}">{{ product.name }}</a></h4>
+                <hr>
+                <p>{{ product.shortDescription }}</p>
+            </div>
+        {% endfor %}
+    </div>
+</section>
+{% endblock %}

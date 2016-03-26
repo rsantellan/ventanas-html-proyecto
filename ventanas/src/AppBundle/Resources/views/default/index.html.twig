@@ -10,11 +10,12 @@
                     <img src="{{ asset('images/content/empresa-home.jpg')}}" alt="">
                 </div>
                 <div class="mainItemDesc">
-                    <h3>sobre nuestra </br>empresa</h3>
+                    <h3>{% trans %}inicio_nosotros_title{% endtrans %}sobre nuestra </br>empresa</h3>
+                    {% trans %}inicio_nosotros_description{% endtrans %}
                     <p>Ventanal nace en el año 1978 y a lo largo de las décadas hemos adquirido experiencia en la fabricación y venta de aberturas de aluminio.
                         </br>Nuestros productos son utilizados en una gran variedad de construcciones. Edificios de vivienda, locales comerciales, viviendas unifamiliares, tanto reforma como obra nueva, donde puertas, ventanas, mamparas y estructuras de aluminio son la mejor opción por sus propiedades químicas y el bajo mantenimiento.</br>
                         Satisfacer la necesidad de cada cliente y cumplir con los tiempos pautados es para nosotros un compromiso .</p>
-                    <a href="nosotros.php">
+                    <a href="{{ path('site_nosotros')}}">
                         <span class="viewMore">ver más 
                             <i class="viewMore">
                                 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" x="0px" y="0px" width="9px" height="15px" viewBox="0 0 9 15" enable-background="new 0 0 9 15" xml:space="preserve">
@@ -27,6 +28,8 @@
                 </div>
             </div>
             <div class="gridItemWrap gridItemWhite clear">
+                {% for product in products | slice(0, 2) %}
+                    {{ dump(product) }}
                 <a href="parasoles.php" class="gridItem clear">
                     <div class="gridItemImg">
                         <img src="{{ asset('images/content/home1.jpg')}}" alt="">	
@@ -61,13 +64,17 @@
                             </i>
                         </span>
                     </div>
-                </a>
+                </a>    
+                {% endfor %}
+                
                 <div class="gridItemWrapLeft">
                     <a href="#" class="gridItemVideo clear" style="cursor:default;">
                         <div class="gridItemImg">
                             <img src="{{ asset('images/content/home3.jpg')}}" alt="">	
                         </div>
                     </a>
+                    {% for product in products | slice(2, 3) %}
+                    {{ dump(product) }}    
                     <a href="mamparas.php" class="gridItem gridItemWhite clear">
                         <div class="gridItemImg">
                             <img src="{{ asset('images/content/home4.jpg')}}" alt="">	
@@ -85,8 +92,11 @@
                             </span>
                         </div>
                     </a>
+                    {% endfor %}    
                 </div>
                 <div class="gridItemWrapRight">
+                    {% for product in products | slice(3, 4) %}
+                        {{ dump(product) }}    
                     <a href="rollers.php" class="gridItem2 clear">
                         <img src="{{ asset('images/content/home5.jpg')}}" alt="">
                             <div class="gridItemDesc">
@@ -102,6 +112,7 @@
                                 </span>
                             </div>
                     </a>
+                    {% endfor %}    
                 </div>
             </div>
         </div>
@@ -109,6 +120,7 @@
         <div class="blogPosts">
             <div class="blockTitle">algunos de nuestros productos</div>
             <div class="blogPostWrap">
+                {% for product in products | slice(4, 8) %}
                 <div class="postItem">
                     <h4><a href="placard.php">Frentes de Placard</a></h4>
                     <p>Sistema corredizo de uso residencial tanto para placares de dormitorio como para cocina.</br> Diferentes tipologías que permiten la realización de frentes
@@ -122,6 +134,7 @@
                     <h4><a href="gala.php">Sistema de aberturas Gala</a></h4>
                     <p>Sistema de aberturas de diseño europeo para doble vidrio con cámara de aire. </br>Una completa línea de perfiles de aristas redondeadas con aislamiento térmico y acústico comprobado.</p>
                 </div>
+                {% endfor %}    
             </div>
         </div>
         <div class="homeGrid">
