@@ -16,10 +16,31 @@ class DefaultController extends Controller
         $products = $em->createQuery('select p from AppBundle:Product p where p.featured = true order by p.position asc')->setFirstResult(0)
                             ->setMaxResults(7)
                             ->getResult();
-      
+        $firstProducts = array();
+        $secondProducts = array();
+        $thirdProducts = array();
+        $index = 0;
+        foreach($products as $product)
+        {
+          if($index < 2)
+          {
+            $firstProducts[] = $product;
+          }
+          if($index >= 2 && $index < 4)
+          {
+            $secondProducts[] = $product;
+          }
+          if($index >= 4)
+          {
+            $thirdProducts[] = $product;
+          }
+          $index++;
+        }
         return $this->render('AppBundle:default:index.html.twig', array(
             'bodycss' => 'home',
-            'products' => $products
+            'first' => $firstProducts,
+            'second' => $secondProducts,
+            'third' => $thirdProducts,
         ));
     }
     

@@ -245,7 +245,22 @@
       </trans-unit>
       <trans-unit id="97f7d9360d006b97f165e0b50d0518d8" resname="servicios_list">
         <source>servicios_list</source>
-        <target>__servicios_list</target>
+        <target><![CDATA[<ul class="serv-list">
+<li>Rectificado de medidas</li>
+<li>Colocaciones con obra seca</li>
+<li>Cambio de persianas existentes por persianas de aluminio</li>
+<li>Ajuste de aberturas al finalizar la obra</li>
+<li>Fachadas de aluminio compuesto</li>
+<li>Presupuestos sin cargo</li>
+</ul>]]></target>
+      </trans-unit>
+      <trans-unit id="81fe42ef95ad8d5711227b604a5407fe" resname="inicio_nosotros_title">
+        <source>inicio_nosotros_title</source>
+        <target><![CDATA[sobre nuestra <br />empresa]]></target>
+      </trans-unit>
+      <trans-unit id="3fced1b29747d3865e6effb9dbd5cdb2" resname="inicio_nosotros_description">
+        <source>inicio_nosotros_description</source>
+        <target>__inicio_nosotros_description</target>
       </trans-unit>
     </body>
   </file>
