@@ -25,91 +25,112 @@
                     </a>
                 </div>
             </div>
-            <div class="gridItemWrap gridItemWhite clear">
-                {% for product in first %}
-                <a href="{{ path('site_producto', {'slug' : product.slug }) }}" class="gridItem clear">
-                    <div class="gridItemImg">
-                        <img src="{{ product.id | mAvatar(product.fullClassName, 'imagenes') | mImage(400, 400, 'rce') }}" alt="">	
-                    </div>
-                    <div class="gridItemDesc">
-                        <h3>{{ product.name }}</h3>
-                        <p>{{ product.shortDescription }}</p>
-                        <span class="viewMore">ver más 
-                            <i>
-                                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" x="0px" y="0px" width="9px" height="15px" viewBox="0 0 9 15" enable-background="new 0 0 9 15" xml:space="preserve">
-                                    <path fill="#96e9d5" d="M10-184.5l-0.826 0.757L1.826-177L1-177.758l7.349-6.742L1-191.243L1.826-192l7.349 6.743L10-184.5z M9.174-183.743L9.174-183.743L10-184.5L9.174-183.743z M9.175-185.257L10-184.5v0L9.175-185.257z"/>
-                                    <path fill="#96e9d5" d="M9 7.5L8.174 8.257L0.826 15L0 14.242L7.349 7.5L0 0.757L0.826 0l7.349 6.743L9 7.5z M8.174 8.3 L8.174 8.257L9 7.5L8.174 8.257z M8.175 6.743L9 7.5v0L8.175 6.743z"/>
-                                </svg>
-                            </i>
-                        </span>
-                    </div>
-                </a>
-                {% endfor %}
-                
-                {% for product in second %}
-                {% if loop.first %}
-                <div class="gridItemWrapLeft">
-                    <a href="#" class="gridItemVideo clear" style="cursor:default;">
-                        <div class="gridItemImg">
-                            <img src="{{ product.id | mAvatar(product.fullClassName, 'imagenes') | mImage(750, 350, 'rce') }}" alt="">
-                        </div>
-                    </a>
-                        
-                    <a href="{{ path('site_producto', {'slug' : product.slug }) }}" class="gridItem gridItemWhite clear">
-                        <div class="gridItemImg">
-                            <img src="{{ product.id | mAvatar(product.fullClassName, 'imagenes', 2) | mImage(400, 400, 'rce') }}" alt="">
-{#                            <img src="{{ asset('images/content/home4.jpg')}}" alt="">	#}
-                        </div>
-                        <div class="gridItemDesc">
-                            <h3>{{ product.name }}</h3>
-                            <p>{{ product.shortDescription }}</p>
-                            <span class="viewMore">ver más 
-                                <i>
-                                    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" x="0px" y="0px" width="9px" height="15px" viewBox="0 0 9 15" enable-background="new 0 0 9 15" xml:space="preserve">
-                                        <path fill="#96e9d5" d="M10-184.5l-0.826 0.757L1.826-177L1-177.758l7.349-6.742L1-191.243L1.826-192l7.349 6.743L10-184.5z M9.174-183.743L9.174-183.743L10-184.5L9.174-183.743z M9.175-185.257L10-184.5v0L9.175-185.257z"/>
-                                        <path fill="#96e9d5" d="M9 7.5L8.174 8.257L0.826 15L0 14.242L7.349 7.5L0 0.757L0.826 0l7.349 6.743L9 7.5z M8.174 8.3 L8.174 8.257L9 7.5L8.174 8.257z M8.175 6.743L9 7.5v0L8.175 6.743z"/>
-                                    </svg>
-                                </i>
-                            </span>
-                        </div>
-                    </a>
-                </div>
-                {% else %}
-                <div class="gridItemWrapRight">
-                        <a href="{{ path('site_producto', {'slug' : product.slug }) }}" class="gridItem2 clear">
-                            <img src="{{ product.id | mAvatar(product.fullClassName, 'imagenes') | mImage(991, 991, 'rce') }}" alt="">
-                            <div class="gridItemDesc">
-                                <h3>{{ product.name }}</h3>
-                                <p>{{ product.shortDescription }}</p>
-                                <span class="viewMore">ver más 
-                                    <i>
-                                        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" x="0px" y="0px" width="9px" height="15px" viewBox="0 0 9 15" enable-background="new 0 0 9 15" xml:space="preserve">
-                                            <path fill="#96e9d5" d="M10-184.5l-0.826 0.757L1.826-177L1-177.758l7.349-6.742L1-191.243L1.826-192l7.349 6.743L10-184.5z M9.174-183.743L9.174-183.743L10-184.5L9.174-183.743z M9.175-185.257L10-184.5v0L9.175-185.257z"/>
-                                            <path fill="#96e9d5" d="M9 7.5L8.174 8.257L0.826 15L0 14.242L7.349 7.5L0 0.757L0.826 0l7.349 6.743L9 7.5z M8.174 8.3 L8.174 8.257L9 7.5L8.174 8.257z M8.175 6.743L9 7.5v0L8.175 6.743z"/>
-                                        </svg>
-                                    </i>
-                                </span>
-                            </div>
-                    </a>
-                </div>
-                {% endif %}    
-                
-                {% endfor %}        
-            </div>
-        </div>
-        {% if third | length > 0 %}
-        <div class="blogPosts">
-            <div class="blockTitle">algunos de nuestros productos</div>
-            <div class="blogPostWrap">
-                {% for product in third %}
-                <div class="postItem">
-                    <h4><a href="{{ path('site_producto', {'slug' : product.slug }) }}">{{ product.name }}</a></h4>
-                    <p>{{ product.shortDescription }}</p>
-                </div>
-                {% endfor %}    
-            </div>
-        </div>
-        {% endif %}    
+
+
+        <div class="gridItemWrapLeft">
+
+					<a href="javascript:void(0)" class="gridItemVideo clear" style="cursor:default;">
+
+						<div class="gridItemImg">
+
+							<img src="{{ asset('images/content/home3.jpg')}}" alt="">	
+
+						</div>
+
+					</a>
+
+				</div>
+
+				<div class="gridItemWrapRight">
+
+					<a href="javascript:void(0)" class="gridItemVideo clear" style="cursor:default;">
+
+						<div class="gridItemImg">
+
+							<img src="{{ asset('images/content/home4.jpg')}}" alt="">	
+
+						</div>
+
+					</a>
+
+				</div>			
+
+			<div class="gridItemWrap gridItemWhite clear">
+
+				<a href="javascript:void(0)" class="gridItem clear">
+
+					<div class="gridItemImg">
+
+						<img src="{{ asset('images/content/home5.jpg')}}" alt="">	
+
+					</div>
+
+					<div class="gridItemImg">
+
+						<img src="{{ asset('images/content/home6.jpg')}}" alt="">	
+
+					</div>
+
+				</a>
+
+				<a href="javascript:void(0)" class="gridItem gridItemWhite clear">
+
+					<div class="gridItemImg">
+
+						<img src="{{ asset('images/content/home7.jpg')}}" alt="">	
+
+					</div>
+
+					<div class="gridItemImg">
+
+						<img src="{{ asset('images/content/home2.jpg')}}" alt="">	
+
+					</div>
+
+				</a>
+
+
+
+			</div>
+
+		</div>
+            
+  </div>
+<div class="blogPosts">
+
+			<div class="blockTitle">algunos de nuestros productos</div>
+
+			<div class="blogPostWrap">
+
+				<div class="postItem">
+
+					<h4><a href="placard.php">Frentes de Placard</a></h4>
+
+					<p>Sistema corredizo de uso residencial tanto para placares de dormitorio como para cocina.</br> Diferentes tipologías que permiten la realización de frentes
+
+						de placard de 2 o más hojas corredizas.</p>
+
+				</div>
+
+				<div class="postItem">
+
+					<h4><a href="summa-alzante.php">Summa Alzante</a></h4>
+
+					<p> Los perfiles diseñados siguiendo las tendencias arquitectónicas a nivel mundial permiten integrar el ambiente con el paisaje exterior. </br>Su altura de hasta 2.70 metros permite una visión exterior inigualable.</p>
+
+				</div>
+
+				<div class="postItem">
+
+					<h4><a href="gala.php">Sistema de aberturas Gala</a></h4>
+
+					<p>Sistema de aberturas de diseño europeo para doble vidrio con cámara de aire. </br>Una completa línea de perfiles de aristas redondeadas con aislamiento térmico y acústico comprobado.</p>
+
+				</div>
+
+			</div>
+
+		</div> 
         <div class="homeGrid">
             <div class="mainItem clear"><!-- mainItem mainItemRight clear  - Reverse  -->
                 <div class="mainItemImg">

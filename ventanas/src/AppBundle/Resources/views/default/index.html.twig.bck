@@ -1,0 +1,143 @@
+{% extends 'AppBundle::base.html.twig' %}
+
+{% block body %}
+    <section class="container">
+        <div class="pageHeader" style="background-image: url({{ asset('images/content/home.jpg')}});">
+        </div>
+        <div class="homeGrid">
+            <div class="mainItem clear"><!-- mainItem mainItemRight clear  - Reverse  -->
+                <div class="mainItemImg">
+                    <img src="{{ asset('images/content/empresa-home.jpg')}}" alt="">
+                </div>
+                <div class="mainItemDesc">
+                    <h3>{% trans %}inicio_nosotros_title{% endtrans %}</h3>
+                    {% trans %}inicio_nosotros_description{% endtrans %}
+                    
+                    <a href="{{ path('site_nosotros')}}">
+                        <span class="viewMore">ver más 
+                            <i class="viewMore">
+                                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" x="0px" y="0px" width="9px" height="15px" viewBox="0 0 9 15" enable-background="new 0 0 9 15" xml:space="preserve">
+                                    <path fill="#96e9d5" d="M10-184.5l-0.826 0.757L1.826-177L1-177.758l7.349-6.742L1-191.243L1.826-192l7.349 6.743L10-184.5z M9.174-183.743L9.174-183.743L10-184.5L9.174-183.743z M9.175-185.257L10-184.5v0L9.175-185.257z"/>
+                                    <path fill="#96e9d5" d="M9 7.5L8.174 8.257L0.826 15L0 14.242L7.349 7.5L0 0.757L0.826 0l7.349 6.743L9 7.5z M8.174 8.3 L8.174 8.257L9 7.5L8.174 8.257z M8.175 6.743L9 7.5v0L8.175 6.743z"/>
+                                </svg>
+                            </i>
+                        </span>
+                    </a>
+                </div>
+            </div>
+            <div class="gridItemWrap gridItemWhite clear">
+                {% for product in first %}
+                <a href="{{ path('site_producto', {'slug' : product.slug }) }}" class="gridItem clear">
+                    <div class="gridItemImg">
+                        <img src="{{ product.id | mAvatar(product.fullClassName, 'imagenes') | mImage(400, 400, 'rce') }}" alt="">	
+                    </div>
+                    <div class="gridItemDesc">
+                        <h3>{{ product.name }}</h3>
+                        <p>{{ product.shortDescription }}</p>
+                        <span class="viewMore">ver más 
+                            <i>
+                                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" x="0px" y="0px" width="9px" height="15px" viewBox="0 0 9 15" enable-background="new 0 0 9 15" xml:space="preserve">
+                                    <path fill="#96e9d5" d="M10-184.5l-0.826 0.757L1.826-177L1-177.758l7.349-6.742L1-191.243L1.826-192l7.349 6.743L10-184.5z M9.174-183.743L9.174-183.743L10-184.5L9.174-183.743z M9.175-185.257L10-184.5v0L9.175-185.257z"/>
+                                    <path fill="#96e9d5" d="M9 7.5L8.174 8.257L0.826 15L0 14.242L7.349 7.5L0 0.757L0.826 0l7.349 6.743L9 7.5z M8.174 8.3 L8.174 8.257L9 7.5L8.174 8.257z M8.175 6.743L9 7.5v0L8.175 6.743z"/>
+                                </svg>
+                            </i>
+                        </span>
+                    </div>
+                </a>
+                {% endfor %}
+                
+                {% for product in second %}
+                {% if loop.first %}
+                <div class="gridItemWrapLeft">
+                    <a href="#" class="gridItemVideo clear" style="cursor:default;">
+                        <div class="gridItemImg">
+                            <img src="{{ product.id | mAvatar(product.fullClassName, 'imagenes') | mImage(750, 350, 'rce') }}" alt="">
+                        </div>
+                    </a>
+                        
+                    <a href="{{ path('site_producto', {'slug' : product.slug }) }}" class="gridItem gridItemWhite clear">
+                        <div class="gridItemImg">
+                            <img src="{{ product.id | mAvatar(product.fullClassName, 'imagenes', 2) | mImage(400, 400, 'rce') }}" alt="">
+{#                            <img src="{{ asset('images/content/home4.jpg')}}" alt="">	#}
+                        </div>
+                        <div class="gridItemDesc">
+                            <h3>{{ product.name }}</h3>
+                            <p>{{ product.shortDescription }}</p>
+                            <span class="viewMore">ver más 
+                                <i>
+                                    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" x="0px" y="0px" width="9px" height="15px" viewBox="0 0 9 15" enable-background="new 0 0 9 15" xml:space="preserve">
+                                        <path fill="#96e9d5" d="M10-184.5l-0.826 0.757L1.826-177L1-177.758l7.349-6.742L1-191.243L1.826-192l7.349 6.743L10-184.5z M9.174-183.743L9.174-183.743L10-184.5L9.174-183.743z M9.175-185.257L10-184.5v0L9.175-185.257z"/>
+                                        <path fill="#96e9d5" d="M9 7.5L8.174 8.257L0.826 15L0 14.242L7.349 7.5L0 0.757L0.826 0l7.349 6.743L9 7.5z M8.174 8.3 L8.174 8.257L9 7.5L8.174 8.257z M8.175 6.743L9 7.5v0L8.175 6.743z"/>
+                                    </svg>
+                                </i>
+                            </span>
+                        </div>
+                    </a>
+                </div>
+                {% else %}
+                <div class="gridItemWrapRight">
+                        <a href="{{ path('site_producto', {'slug' : product.slug }) }}" class="gridItem2 clear">
+                            <img src="{{ product.id | mAvatar(product.fullClassName, 'imagenes') | mImage(991, 991, 'rce') }}" alt="">
+                            <div class="gridItemDesc">
+                                <h3>{{ product.name }}</h3>
+                                <p>{{ product.shortDescription }}</p>
+                                <span class="viewMore">ver más 
+                                    <i>
+                                        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" x="0px" y="0px" width="9px" height="15px" viewBox="0 0 9 15" enable-background="new 0 0 9 15" xml:space="preserve">
+                                            <path fill="#96e9d5" d="M10-184.5l-0.826 0.757L1.826-177L1-177.758l7.349-6.742L1-191.243L1.826-192l7.349 6.743L10-184.5z M9.174-183.743L9.174-183.743L10-184.5L9.174-183.743z M9.175-185.257L10-184.5v0L9.175-185.257z"/>
+                                            <path fill="#96e9d5" d="M9 7.5L8.174 8.257L0.826 15L0 14.242L7.349 7.5L0 0.757L0.826 0l7.349 6.743L9 7.5z M8.174 8.3 L8.174 8.257L9 7.5L8.174 8.257z M8.175 6.743L9 7.5v0L8.175 6.743z"/>
+                                        </svg>
+                                    </i>
+                                </span>
+                            </div>
+                    </a>
+                </div>
+                {% endif %}    
+                
+                {% endfor %}        
+            </div>
+        </div>
+        {% if third | length > 0 %}
+        <div class="blogPosts">
+            <div class="blockTitle">algunos de nuestros productos</div>
+            <div class="blogPostWrap">
+                {% for product in third %}
+                <div class="postItem">
+                    <h4><a href="{{ path('site_producto', {'slug' : product.slug }) }}">{{ product.name }}</a></h4>
+                    <p>{{ product.shortDescription }}</p>
+                </div>
+                {% endfor %}    
+            </div>
+        </div>
+        {% endif %}    
+        <div class="homeGrid">
+            <div class="mainItem clear"><!-- mainItem mainItemRight clear  - Reverse  -->
+                <div class="mainItemImg">
+                    <img src="{{ asset('images/content/map-home.jpg')}}" alt="">
+                </div>
+                <div class="mainItemDesc mainItemDesc-contacto">
+                    <h3>contacto</h3>
+                    <div class="contact-block">
+                        <img src="{{ asset('/images/marker.png')}}">
+                            <h3>dirección</h3>
+                            <span>Dr.A.Gallinal 1890</span>
+                    </div>
+                    <div class="contact-block">
+                        <img src="{{ asset('/images/tel.png')}}">
+                            <h3>teléfono</h3>
+                            <span>(+598) 2619 1877 | 2613 2152</span>
+                    </div>
+                    <div class="contact-block">
+                        <img src="{{ asset('/images/mail.png')}}">
+                            <h3>mail</h3>
+                            <span><a href="mailto:info@ventanal.com.uy">info@ventanal.com.uy</a></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>    
+{% endblock %}
+
+{% block stylesheets %}
+
+{% endblock %}
