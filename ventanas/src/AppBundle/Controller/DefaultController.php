@@ -11,48 +11,29 @@ class DefaultController extends Controller
 
     public function indexAction(Request $request)
     {
-      
+
         $em = $this->getDoctrine()->getManager();
         $products = $em->createQuery('select p from AppBundle:Product p where p.featured = true order by p.position asc')->setFirstResult(0)
-                            ->setMaxResults(7)
+                            ->setMaxResults(3)
                             ->getResult();
-        $firstProducts = array();
-        $secondProducts = array();
-        $thirdProducts = array();
-        $index = 0;
-        foreach($products as $product)
-        {
-          if($index < 2)
-          {
-            $firstProducts[] = $product;
-          }
-          if($index >= 2 && $index < 4)
-          {
-            $secondProducts[] = $product;
-          }
-          if($index >= 4)
-          {
-            $thirdProducts[] = $product;
-          }
-          $index++;
-        }
+        $mediaGallery = $this->get('media_gallery_manager');
+        $files = array_reverse($mediaGallery->getGalleryFiles('inicio'));
         return $this->render('AppBundle:default:index.html.twig', array(
             'bodycss' => 'home',
-            'first' => $firstProducts,
-            'second' => $secondProducts,
-            'third' => $thirdProducts,
+            'products' => $products,
+            'files' => array_slice($files, 0, 6),
         ));
     }
-    
+
     public function galleryAction(Request $request)
     {
       $mediaGallery = $this->get('media_gallery_manager');
-      $files = $mediaGallery->getGalleryFiles('galeria');
+      $files = array_reverse($mediaGallery->getGalleryFiles('galeria'));
       return $this->render('AppBundle:default:galeria.html.twig', array(
              'bodycss' => 'blog',
              'activemenu' => 'galeria',
              'files' => $files,
-          
+
         ));
     }
 
@@ -63,7 +44,7 @@ class DefaultController extends Controller
             'bodycss' => 'single-post',
             'activemenu' => 'nosotros',
         ));
-    }    
+    }
 
     public function serviciosAction(Request $request)
     {
@@ -72,25 +53,25 @@ class DefaultController extends Controller
             'bodycss' => 'blog',
             'activemenu' => 'servicios',
         ));
-    }    
+    }
 
     public function productosAction(Request $request)
     {
         $em = $this->getDoctrine()->getManager();
         $products = $em->createQuery('select p from AppBundle:Product p order by p.position asc')->getResult();
-        
+
         return $this->render('AppBundle:default:productos.html.twig', array(
             'bodycss' => 'blog',
             'activemenu' => 'productos',
             'products' => $products,
         ));
-    }    
+    }
 
     public function productoAction(Request $request, $slug)
     {
         $em = $this->getDoctrine()->getManager();
         $product = $em->createQuery('select p from AppBundle:Product p where p.slug = :slug')->setParameters(array('slug' => $slug))->getOneOrNullResult();
-        
+
         if(!$product)
         {
           return $this->render('AppBundle:default:productNotFound.html.twig', array(
@@ -107,7 +88,7 @@ class DefaultController extends Controller
             'images' => $imagenesAlbum,
             'files' => $filesAlbum,
         ));
-    }    
+    }
 
     public function contactoAction(Request $request)
     {
@@ -116,11 +97,12 @@ class DefaultController extends Controller
           $form->bind($request);
 
           if ($form->isValid()) {
+              $parametersService = $this->get('maith_common.parameters');
               $message = \Swift_Message::newInstance()
-                ->setSubject('[Ventanas] Contacto desde sitio web')
-                ->setFrom(array('hola@tekoaviajes.com.uy' => 'Tekoa Viajes'))
+                ->setSubject($parametersService->getParameter('contact-email-subject'))
+                ->setFrom(array($parametersService->getParameter('contact-email-from') => $parametersService->getParameter('contact-email-from-name')))
                 ->setReplyTo($form->get('email')->getData())
-                ->setTo('rsantellan@gmail.com')
+                ->setTo(array($parametersService->getParameter('contact-email-to')))
                 ->setBody(
                     $this->renderView(
                         'AppBundle:default:contactEmail.html.twig',
@@ -137,7 +119,7 @@ class DefaultController extends Controller
               $this->get('mailer')->send($message);
 
               $request->getSession()->getFlashBag()->add('success', 'Se a enviado tu consulta con exito. Te contestaremos a la brevedad');
-              return $this->redirect($this->generateUrl('site_contacto'));            
+              return $this->redirect($this->generateUrl('site_contacto'));
           }
         }
         // replace this example code with whatever you need
@@ -146,8 +128,8 @@ class DefaultController extends Controller
             'activemenu' => 'contacto',
             'form' => $form->createView(),
         ));
-    }    
-    
+    }
+
     public function downloadOriginalFileAction($id)
     {
       $em = $this->getDoctrine()->getManager();
@@ -180,7 +162,7 @@ class DefaultController extends Controller
           $mime_type = $known_mime_types[$file_extension];
         }
       }
-      
+
       $response->headers->set('Content-Type', $mime_type);
       $response->headers->set('Content-Disposition', 'attachment;filename="'.$file->getName());
 

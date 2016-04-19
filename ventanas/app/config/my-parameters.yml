@@ -1,0 +1,5 @@
+parameters:
+    contact-email-from: lau@lauranozar.com
+    contact-email-from-name: 'Laura Nozar'
+    contact-email-to: lau@lauranozar.com
+    contact-email-subject: '[Ventanal] Contacto desde sitio web'

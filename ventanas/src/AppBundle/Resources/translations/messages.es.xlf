@@ -262,6 +262,10 @@
         <source>inicio_nosotros_description</source>
         <target><![CDATA[<p>Ventanal nace en el a&ntilde;o 1978 y a lo largo de las d&eacute;cadas hemos adquirido experiencia en la fabricaci&oacute;n y venta de aberturas de aluminio. Nuestros productos son utilizados en una gran variedad de construcciones. Edificios de vivienda, locales comerciales, viviendas unifamiliares, tanto reforma como obra nueva, donde puertas, ventanas, mamparas y estructuras de aluminio son la mejor opci&oacute;n por sus propiedades qu&iacute;micas y el bajo mantenimiento. Satisfacer la necesidad de cada cliente y cumplir con los tiempos pautados es para nosotros un compromiso .</p>]]></target>
       </trans-unit>
+      <trans-unit id="3dece54cdfe755d39cea28aa73dec37e" resname="inicio_productos_title">
+        <source>inicio_productos_title</source>
+        <target>algunos de nuestros productos</target>
+      </trans-unit>
     </body>
   </file>
 </xliff>
