@@ -113,7 +113,7 @@ class DefaultController extends Controller
                             'subject' => $form->get('subject')->getData(),
                             'email' => $form->get('email')->getData(),
                         )
-                    )
+                    ), 'text/html'
                 );
 
               $this->get('mailer')->send($message);

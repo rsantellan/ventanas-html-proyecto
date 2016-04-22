@@ -11,7 +11,8 @@
                 {% for flashmessage in app.session.flashbag.get('success') %}
                     {{ flashmessage}}
                 {% endfor %}
-            {% endif %}
+            {% else %}
+            
             <form action="{{ path('site_contacto') }}" method="POST" >
             <p class="contacto-text">{% trans %}contact_description{% endtrans %}</p>
             <p class="form-row form-row-first">
@@ -38,6 +39,7 @@
             <input class="checkoutBtn" type="submit" value="{% trans %}contact_send{% endtrans %}">
             {{ form_rest(form) }}
             </form>
+            {% endif %}
         </div>				
 
 

@@ -29,7 +29,7 @@
                         {{ product.description | raw }}
                         {% if files is not null %}
                             {% for file in files.files %}
-                                <p><a href="{{ path('site_producto_file_download', { 'id' : file.id }) }}" target="blank"><i class="fa fa-download"></i> <span>Descargar Folleto</span></a></p>
+                                <p><a href="{{ path('site_producto_file_download', { 'id' : file.id }) }}" target="_blank"><i class="fa fa-download"></i> <span>{% if file.showName == '' %}Descargar Folleto{% else %}{{ file.showName }}{% endif %}</span></a></p>
                             {% endfor %}
                         {% endif %}
                     </div>
