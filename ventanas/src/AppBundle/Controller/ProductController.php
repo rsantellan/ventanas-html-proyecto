@@ -4,20 +4,16 @@ namespace AppBundle\Controller;
 
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-
 use AppBundle\Entity\Product;
 use AppBundle\Form\ProductType;
 
 /**
  * Product controller.
- *
  */
 class ProductController extends Controller
 {
-
     /**
      * Lists all Product entities.
-     *
      */
     public function indexAction()
     {
@@ -31,7 +27,6 @@ class ProductController extends Controller
     }
     /**
      * Creates a new Product entity.
-     *
      */
     public function createAction(Request $request)
     {
@@ -49,7 +44,7 @@ class ProductController extends Controller
 
         return $this->render('AppBundle:Product:new.html.twig', array(
             'entity' => $entity,
-            'form'   => $form->createView(),
+            'form' => $form->createView(),
         ));
     }
 
@@ -74,22 +69,20 @@ class ProductController extends Controller
 
     /**
      * Displays a form to create a new Product entity.
-     *
      */
     public function newAction()
     {
         $entity = new Product();
-        $form   = $this->createCreateForm($entity);
+        $form = $this->createCreateForm($entity);
 
         return $this->render('AppBundle:Product:new.html.twig', array(
             'entity' => $entity,
-            'form'   => $form->createView(),
+            'form' => $form->createView(),
         ));
     }
 
     /**
      * Finds and displays a Product entity.
-     *
      */
     public function showAction($id)
     {
@@ -104,14 +97,13 @@ class ProductController extends Controller
         $deleteForm = $this->createDeleteForm($id);
 
         return $this->render('AppBundle:Product:show.html.twig', array(
-            'entity'      => $entity,
+            'entity' => $entity,
             'delete_form' => $deleteForm->createView(),
         ));
     }
 
     /**
      * Displays a form to edit an existing Product entity.
-     *
      */
     public function editAction($id)
     {
@@ -127,19 +119,19 @@ class ProductController extends Controller
         $deleteForm = $this->createDeleteForm($id);
 
         return $this->render('AppBundle:Product:edit.html.twig', array(
-            'entity'      => $entity,
-            'edit_form'   => $editForm->createView(),
+            'entity' => $entity,
+            'edit_form' => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),
         ));
     }
 
     /**
-    * Creates a form to edit a Product entity.
-    *
-    * @param Product $entity The entity
-    *
-    * @return \Symfony\Component\Form\Form The form
-    */
+     * Creates a form to edit a Product entity.
+     *
+     * @param Product $entity The entity
+     *
+     * @return \Symfony\Component\Form\Form The form
+     */
     private function createEditForm(Product $entity)
     {
         $form = $this->createForm(new ProductType(), $entity, array(
@@ -153,7 +145,6 @@ class ProductController extends Controller
     }
     /**
      * Edits an existing Product entity.
-     *
      */
     public function updateAction(Request $request, $id)
     {
@@ -176,14 +167,13 @@ class ProductController extends Controller
         }
 
         return $this->render('AppBundle:Product:edit.html.twig', array(
-            'entity'      => $entity,
-            'edit_form'   => $editForm->createView(),
+            'entity' => $entity,
+            'edit_form' => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),
         ));
     }
     /**
      * Deletes a Product entity.
-     *
      */
     public function deleteAction(Request $request, $id)
     {

@@ -6,7 +6,7 @@ use Doctrine\ORM\Mapping as ORM;
 use Gedmo\Mapping\Annotation as Gedmo;
 
 /**
- * Product
+ * Product.
  *
  * @ORM\Table(name="ventana_producto")
  * @ORM\Entity(repositoryClass="Gedmo\Sortable\Entity\Repository\SortableRepository")
@@ -14,7 +14,7 @@ use Gedmo\Mapping\Annotation as Gedmo;
 class Product
 {
     /**
-     * @var integer
+     * @var int
      *
      * @ORM\Column(name="id", type="integer")
      * @ORM\Id
@@ -60,7 +60,7 @@ class Product
     private $updatedAt;
 
     /**
-     * @var integer
+     * @var int
      *
      * @Gedmo\SortablePosition
      * @ORM\Column(name="position", type="integer")
@@ -68,7 +68,7 @@ class Product
     private $position = 0;
 
     /**
-     * @var integer
+     * @var int
      *
      * @ORM\Column(name="featured", type="boolean")
      */
@@ -81,11 +81,11 @@ class Product
      * @ORM\Column(name="slug", type="string", length=255)
      */
     private $slug;
-    
+
     /**
-     * Get id
+     * Get id.
      *
-     * @return integer 
+     * @return int
      */
     public function getId()
     {
@@ -93,9 +93,10 @@ class Product
     }
 
     /**
-     * Set name
+     * Set name.
      *
      * @param string $name
+     *
      * @return Product
      */
     public function setName($name)
@@ -106,9 +107,9 @@ class Product
     }
 
     /**
-     * Get name
+     * Get name.
      *
-     * @return string 
+     * @return string
      */
     public function getName()
     {
@@ -116,9 +117,10 @@ class Product
     }
 
     /**
-     * Set shortDescription
+     * Set shortDescription.
      *
      * @param string $shortDescription
+     *
      * @return Product
      */
     public function setShortDescription($shortDescription)
@@ -129,9 +131,9 @@ class Product
     }
 
     /**
-     * Get shortDescription
+     * Get shortDescription.
      *
-     * @return string 
+     * @return string
      */
     public function getShortDescription()
     {
@@ -139,9 +141,10 @@ class Product
     }
 
     /**
-     * Set description
+     * Set description.
      *
      * @param string $description
+     *
      * @return Product
      */
     public function setDescription($description)
@@ -152,9 +155,9 @@ class Product
     }
 
     /**
-     * Get description
+     * Get description.
      *
-     * @return string 
+     * @return string
      */
     public function getDescription()
     {
@@ -162,9 +165,10 @@ class Product
     }
 
     /**
-     * Set createdAt
+     * Set createdAt.
      *
      * @param \DateTime $createdAt
+     *
      * @return Product
      */
     public function setCreatedAt($createdAt)
@@ -175,9 +179,9 @@ class Product
     }
 
     /**
-     * Get createdAt
+     * Get createdAt.
      *
-     * @return \DateTime 
+     * @return \DateTime
      */
     public function getCreatedAt()
     {
@@ -185,9 +189,10 @@ class Product
     }
 
     /**
-     * Set updatedAt
+     * Set updatedAt.
      *
      * @param \DateTime $updatedAt
+     *
      * @return Product
      */
     public function setUpdatedAt($updatedAt)
@@ -198,9 +203,9 @@ class Product
     }
 
     /**
-     * Get updatedAt
+     * Get updatedAt.
      *
-     * @return \DateTime 
+     * @return \DateTime
      */
     public function getUpdatedAt()
     {
@@ -208,9 +213,10 @@ class Product
     }
 
     /**
-     * Set position
+     * Set position.
      *
-     * @param integer $position
+     * @param int $position
+     *
      * @return Product
      */
     public function setPosition($position)
@@ -221,9 +227,9 @@ class Product
     }
 
     /**
-     * Get position
+     * Get position.
      *
-     * @return integer 
+     * @return int
      */
     public function getPosition()
     {
@@ -231,9 +237,10 @@ class Product
     }
 
     /**
-     * Set featured
+     * Set featured.
      *
-     * @param boolean $featured
+     * @param bool $featured
+     *
      * @return Product
      */
     public function setFeatured($featured)
@@ -244,9 +251,9 @@ class Product
     }
 
     /**
-     * Get featured
+     * Get featured.
      *
-     * @return boolean 
+     * @return bool
      */
     public function getFeatured()
     {
@@ -254,9 +261,10 @@ class Product
     }
 
     /**
-     * Set slug
+     * Set slug.
      *
      * @param string $slug
+     *
      * @return Product
      */
     public function setSlug($slug)
@@ -267,22 +275,22 @@ class Product
     }
 
     /**
-     * Get slug
+     * Get slug.
      *
-     * @return string 
+     * @return string
      */
     public function getSlug()
     {
         return $this->slug;
     }
-    
+
     public function getFullClassName()
     {
-      return get_class($this);
+        return get_class($this);
     }
-    
+
     public function retrieveAlbums()
     {
-      return array('imagenes', 'archivos');
+        return array('imagenes', 'archivos');
     }
 }

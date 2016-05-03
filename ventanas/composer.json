@@ -50,8 +50,7 @@
         "Maith/Common/UsersBundle": "dev-master"
     },
     "require-dev": {
-        "sensio/generator-bundle": "~2.3",
-        "phpro/grumphp": "^0.9.0"
+        "sensio/generator-bundle": "~2.3"
     },
     "scripts": {
         "post-install-cmd": [
