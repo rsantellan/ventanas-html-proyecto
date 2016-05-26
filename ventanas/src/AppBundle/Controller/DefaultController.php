@@ -14,21 +14,30 @@ class DefaultController extends Controller
         $products = $em->createQuery('select p from AppBundle:Product p where p.featured = true order by p.position asc')->setFirstResult(0)
                             ->setMaxResults(3)
                             ->getResult();
-        $mediaGallery = $this->get('media_gallery_manager');
-        $files = array_reverse($mediaGallery->getGalleryFiles('inicio'));
-
+        $obj = new \AppBundle\Entity\GalleryEntity();
+        $imagenesAlbum = $em->getRepository('MaithCommonAdminBundle:mAlbum')->findOneBy(array('object_id' => $obj->getId(), 'object_class' => $obj->getFullClassName(), 'name' => 'inicio'));
+        $files = array();
+        if($imagenesAlbum != null){
+          $files = $imagenesAlbum->getFiles()->slice(0,6);
+        }
         return $this->render('AppBundle:default:index.html.twig', array(
             'bodycss' => 'home',
             'products' => $products,
-            'files' => array_slice($files, 0, 6),
+            'files' => $files,
         ));
     }
 
     public function galleryAction(Request $request)
     {
-        $mediaGallery = $this->get('media_gallery_manager');
-        $files = array_reverse($mediaGallery->getGalleryFiles('galeria'));
-
+        //$mediaGallery = $this->get('media_gallery_manager');
+        //$files = array_reverse($mediaGallery->getGalleryFiles('galeria'));
+        $em = $this->getDoctrine()->getManager();
+        $obj = new \AppBundle\Entity\GalleryEntity();
+        $imagenesAlbum = $em->getRepository('MaithCommonAdminBundle:mAlbum')->findOneBy(array('object_id' => $obj->getId(), 'object_class' => $obj->getFullClassName(), 'name' => 'galeria'));
+        $files = array();
+        if($imagenesAlbum != null){
+          $files = $imagenesAlbum->getFiles();
+        }
         return $this->render('AppBundle:default:galeria.html.twig', array(
              'bodycss' => 'blog',
              'activemenu' => 'galeria',

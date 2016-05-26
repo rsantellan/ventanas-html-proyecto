@@ -2564,16 +2564,16 @@
         },
         {
             "name": "symfony/polyfill-apcu",
-            "version": "v1.1.1",
+            "version": "v1.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/polyfill-apcu.git",
-                "reference": "0c901e4e65a2f7ece68f0fd249b56d6ad3adc214"
+                "reference": "6d58bceaeea2c2d3eb62503839b18646e161cd6b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/polyfill-apcu/zipball/0c901e4e65a2f7ece68f0fd249b56d6ad3adc214",
-                "reference": "0c901e4e65a2f7ece68f0fd249b56d6ad3adc214",
+                "url": "https://api.github.com/repos/symfony/polyfill-apcu/zipball/6d58bceaeea2c2d3eb62503839b18646e161cd6b",
+                "reference": "6d58bceaeea2c2d3eb62503839b18646e161cd6b",
                 "shasum": ""
             },
             "require": {
@@ -2582,7 +2582,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.1-dev"
+                    "dev-master": "1.2-dev"
                 }
             },
             "autoload": {
@@ -2613,20 +2613,20 @@
                 "portable",
                 "shim"
             ],
-            "time": "2016-03-03 16:49:40"
+            "time": "2016-05-18 14:26:46"
         },
         {
             "name": "symfony/polyfill-mbstring",
-            "version": "v1.1.1",
+            "version": "v1.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/polyfill-mbstring.git",
-                "reference": "1289d16209491b584839022f29257ad859b8532d"
+                "reference": "dff51f72b0706335131b00a7f49606168c582594"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/polyfill-mbstring/zipball/1289d16209491b584839022f29257ad859b8532d",
-                "reference": "1289d16209491b584839022f29257ad859b8532d",
+                "url": "https://api.github.com/repos/symfony/polyfill-mbstring/zipball/dff51f72b0706335131b00a7f49606168c582594",
+                "reference": "dff51f72b0706335131b00a7f49606168c582594",
                 "shasum": ""
             },
             "require": {
@@ -2638,7 +2638,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.1-dev"
+                    "dev-master": "1.2-dev"
                 }
             },
             "autoload": {
@@ -2672,7 +2672,7 @@
                 "portable",
                 "shim"
             ],
-            "time": "2016-01-20 09:13:37"
+            "time": "2016-05-18 14:26:46"
         },
         {
             "name": "symfony/swiftmailer-bundle",
@@ -2733,16 +2733,16 @@
         },
         {
             "name": "symfony/symfony",
-            "version": "v2.7.12",
+            "version": "v2.7.13",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/symfony.git",
-                "reference": "9edf2430f1846602844d2b434f26389a018f494f"
+                "reference": "7c23f76ba732de9b34075970b0d0a3ec9a5c38f0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/symfony/zipball/9edf2430f1846602844d2b434f26389a018f494f",
-                "reference": "9edf2430f1846602844d2b434f26389a018f494f",
+                "url": "https://api.github.com/repos/symfony/symfony/zipball/7c23f76ba732de9b34075970b0d0a3ec9a5c38f0",
+                "reference": "7c23f76ba732de9b34075970b0d0a3ec9a5c38f0",
                 "shasum": ""
             },
             "require": {
@@ -2856,7 +2856,7 @@
             "keywords": [
                 "framework"
             ],
-            "time": "2016-04-29 09:48:03"
+            "time": "2016-05-09 20:35:47"
         },
         {
             "name": "twig/twig",

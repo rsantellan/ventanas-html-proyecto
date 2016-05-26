@@ -7,9 +7,9 @@
             <div class="shopItemsWrap">
                 {% for file in files%}
                 <a class="shopItem {% if loop.first %}fc-event-yoga{% endif %}">
-                    <img alt="{{ file.fileName }}" src="{{ file.pathName | mImage(500, 500, 'rce') }}" />
+                    <img alt="{{ file.name }}" src="{{ file.fullPath | mImage(500, 500, 'rce') }}" />
                 </a>
-                {% endfor %}                
+                {% endfor %}
             </div>
         </div>
     </div>

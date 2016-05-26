@@ -29,7 +29,7 @@
         <div class="gridItemWrapLeft">
 					<a href="javascript:void(0)" class="gridItemVideo clear" style="cursor:default;">
 						<div class="gridItemImg">
-              <img alt="{{ files[0].fileName }}" src="{{ files[0].pathName | mImage(750, 350, 'rce') }}" />
+              <img alt="{{ files[0].name }}" src="{{ files[0].fullPath | mImage(750, 350, 'rce') }}" />
 						</div>
 					</a>
 				</div>
@@ -38,7 +38,7 @@
 				<div class="gridItemWrapRight">
 					<a href="javascript:void(0)" class="gridItemVideo clear" style="cursor:default;">
 						<div class="gridItemImg">
-              <img alt="{{ files[1].fileName }}" src="{{ files[1].pathName | mImage(750, 350, 'rce') }}" />
+              <img alt="{{ files[1].name }}" src="{{ files[1].fullPath | mImage(750, 350, 'rce') }}" />
 						</div>
 					</a>
 				</div>
@@ -47,11 +47,11 @@
         {% if files[2] is defined %}
 				<a href="javascript:void(0)" class="gridItem clear">
 					<div class="gridItemImg">
-            <img alt="{{ files[2].fileName }}" src="{{ files[2].pathName | mImage(400, 400, 'rce') }}" />
+            <img alt="{{ files[2].name }}" src="{{ files[2].fullPath | mImage(400, 400, 'rce') }}" />
 					</div>
           {% if files[3] is defined %}
 					<div class="gridItemImg">
-						<img alt="{{ files[3].fileName }}" src="{{ files[3].pathName | mImage(400, 400, 'rce') }}" />
+						<img alt="{{ files[3].name }}" src="{{ files[3].fullPath | mImage(400, 400, 'rce') }}" />
 					</div>
           {% endif %}
 				</a>
@@ -59,11 +59,11 @@
         {% if files[4] is defined %}
 				<a href="javascript:void(0)" class="gridItem clear">
 					<div class="gridItemImg">
-            <img alt="{{ files[4].fileName }}" src="{{ files[4].pathName | mImage(400, 400, 'rce') }}" />
+            <img alt="{{ files[4].name }}" src="{{ files[4].fullPath | mImage(400, 400, 'rce') }}" />
 					</div>
           {% if files[5] is defined %}
 					<div class="gridItemImg">
-						<img alt="{{ files[5].fileName }}" src="{{ files[5].pathName | mImage(400, 400, 'rce') }}" />
+						<img alt="{{ files[5].name }}" src="{{ files[5].fullPath | mImage(400, 400, 'rce') }}" />
 					</div>
           {% endif %}
 				</a>

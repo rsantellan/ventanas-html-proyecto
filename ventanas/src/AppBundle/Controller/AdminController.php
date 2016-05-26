@@ -13,8 +13,9 @@ class AdminController extends Controller
 
     public function galleriesAction()
     {
+        $obj = new \AppBundle\Entity\GalleryEntity();
         return $this->render('AppBundle:Admin:galleries.html.twig', array(
-
-));
+            'entity' => $obj,
+        ));
     }
 }
